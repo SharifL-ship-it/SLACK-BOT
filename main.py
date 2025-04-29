@@ -12,7 +12,8 @@ import hmac
 import hashlib
 import string
 from datetime import datetime, timedelta
-from langchain_groq import ChatGroq
+# from langchain_groq import ChatGroq
+from langchain_openai import OpenAI
 from langchain_core.messages import HumanMessage
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
@@ -64,15 +65,10 @@ embeddings = GoogleGenerativeAIEmbeddings(
 faiss_index = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
 faiss_index_improved = FAISS.load_local("faiss_index_improved", embeddings, allow_dangerous_deserialization=True)
 
-# Initialize Groq LLM
-llm = ChatGroq(
-    api_key=os.getenv("GROQ_API_KEY"),
-    model="deepseek-r1-distill-llama-70b",
-    temperature=0,
-    max_tokens=None,
-    timeout=None,
-    max_retries=2,
-)
+# Initialize OpenAI LLM
+llm = OpenAI()
+
+
 
 # Get bot's user ID
 try:
