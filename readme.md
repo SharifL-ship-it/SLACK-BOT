@@ -24,7 +24,7 @@ This SlackBot Q&A Assistant is designed to provide intelligent responses to user
 
 ## ✨ Features
 
-- **Intelligent Q&A**: Answers questions using Groq's language models
+- **Intelligent Q&A**: Answers questions using OpenAi's language models
 - **Dual Vector Search**: Uses two FAISS indexes to search for relevant information
   - Regular index for AI-generated responses
   - Improved index for human-verified answers
@@ -73,7 +73,7 @@ This SlackBot Q&A Assistant is designed to provide intelligent responses to user
 The system is built with a FastAPI backend that handles:
 
 1. Slack event subscriptions
-2. LLM interaction via Groq API
+2. LLM interaction via OpenAI API
 3. Vector search using FAISS
 4. Database operations for flagged questions
 5. Admin dashboard for content moderation
@@ -85,7 +85,7 @@ The system is built with a FastAPI backend that handles:
 - **Backend Framework**: FastAPI
 - **Database**: SQLite (with SQLAlchemy ORM)
 - **Vector Search**: FAISS
-- **LLM Provider**: Groq
+- **LLM Provider**: OpenAI
 - **Embeddings**: Google Generative AI Embeddings
 - **Frontend**: Jinja2 Templates for admin dashboard
 - **Integration**: Slack API (Events API, WebClient)
@@ -123,7 +123,7 @@ The system is built with a FastAPI backend that handles:
 
 - Python 3.8+
 - Slack workspace with admin access
-- Groq API key
+- OpenAI API key
 - Google API key for embeddings
 
 ### Installation Steps
@@ -148,7 +148,7 @@ The system is built with a FastAPI backend that handles:
 4. Create a `.env` file with the following variables:
    ```
    # API Keys
-   GROQ_API_KEY=your_groq_api_key
+   OPENAI_API_KEY=your_openai_api_key
    GOOGLE_API_KEY=your_google_api_key  # Required for text embeddings using Google's Generative AI
 
    # Slack Configuration
@@ -169,7 +169,7 @@ The system is built with a FastAPI backend that handles:
 The application uses the following environment variables:
 
 - **API Keys**
-  - `GROQ_API_KEY`: Your Groq API key for accessing LLM
+  - `OPENAI_API_KEY`: Your openai API key for accessing LLM
   - `GOOGLE_API_KEY`: Your Google API key for text embeddings using Google's Generative AI (model: models/embedding-001)
 
 - **Slack Configuration**
